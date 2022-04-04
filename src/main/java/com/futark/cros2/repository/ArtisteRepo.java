@@ -13,11 +13,13 @@ public interface ArtisteRepo extends JpaRepository<Artiste,Long> {
 
     @Query(value = "SELECT * FROM artiste " +
             "WHERE (lastname ILIKE %:#{#lastname}%  OR :#{#lastname} ='')" +
-            "AND (firstname ILIKE %:#{#firstname}%  OR :#{#firstname} ='')"
+            "AND (firstname ILIKE %:#{#firstname}%  OR :#{#firstname} ='')" +
+            "AND (nickname ILIKE %:#{#nickname}%  OR :#{#nickname} ='')"
             , nativeQuery = true)
     Page<Artiste> filtreArtiste(
             @Param("lastname") String lastname,
             @Param("firstname") String firstname,
+            @Param("nickname") String nickname,
             Pageable pageable
     );
 

@@ -44,11 +44,16 @@ public class UtilisateurService {
 //        roleRepo.save(new Role("ControlAdmin","Donne acces a l'administration des controls"));
 //
 //
+//        roleRepo.save(new Role("Todo","Donne acces aux todos"));
+//        roleRepo.save(new Role("TodoAdmin","Donne acces a l'administration des todos"));
+//
 //        utilisateurRepo.save(new Utilisateur("admin","admin","admin",getEncodedPassword("admin"),"admin@gmail.com",false,new HashSet<Role>(){{add(b);}}));
 //        utilisateurRepo.save(new Utilisateur("user","user","user",getEncodedPassword("user"),"user@gmail.com",false,new HashSet<Role>(){{add(c);}}));
 //        utilisateurRepo.save(new Utilisateur("gohor","Olivier","ARGAUD",getEncodedPassword("killian69"),"gohor@gmail.com",false,new HashSet<Role>(){{add(a);add(b);add(c);}}));
 
-
+//        Utilisateur gohor = utilisateurRepo.findByUsername("gohor");
+//        gohor.setIsvalidated(true);
+//        utilisateurRepo.save(gohor);
     }
 
     public Utilisateur registerNewUser(Utilisateur user){
@@ -67,7 +72,7 @@ public class UtilisateurService {
                     "<br>\n" +
                     "<div>Merci de finaliser votre inscription en cliquant sur le lien ci dessous</div>\n" +
                     "<br>\n" +
-                    "<a href=\""+ myApiUrl +"/validate?id="+user.getUsername()+"&code="+user.getValidationkey()+"\">valider votre compte</a>";
+                    "<a href=\""+ myApiUrl +":5000/validate?id="+user.getUsername()+"&code="+user.getValidationkey()+"\">valider votre compte</a>";
 
             mailService.sendMail(user.getEmail(),"validation compte Cros la grange",msg);
 

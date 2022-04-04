@@ -29,7 +29,8 @@ public class ArtisteController {
 
     @GetMapping("/{id}")
     ResponseEntity<Artiste> getArtiste(@PathVariable Long id){
-        return new ResponseEntity<Artiste>(artisteService.getArtiste(id),HttpStatus.OK);
+        Artiste artiste = artisteService.getArtiste(id);
+        return new ResponseEntity<Artiste>(artiste,HttpStatus.OK);
     }
 
     @GetMapping("/all")
@@ -46,13 +47,14 @@ public class ArtisteController {
                     @RequestParam(defaultValue = "ASC") String sortDirection,
 
                     @RequestParam(defaultValue = "") String lastname,
-                    @RequestParam(defaultValue = "") String firstname
+                    @RequestParam(defaultValue = "") String firstname,
+                    @RequestParam(defaultValue = "") String nickname
             ) {
 
-        return new ResponseEntity(artisteService.filtreArtiste( lastname, firstname, page,  size,  sortProperty,  sortDirection), HttpStatus.OK);
+        return new ResponseEntity(artisteService.filtreArtiste( lastname, firstname, nickname, page,  size,  sortProperty,  sortDirection), HttpStatus.OK);
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     ResponseEntity <Boolean> delArtiste(@PathVariable Long id ){
         return new ResponseEntity<>(artisteService.delArtiste(id),HttpStatus.OK);
     }

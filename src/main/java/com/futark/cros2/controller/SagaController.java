@@ -49,7 +49,7 @@ public class SagaController {
         return new ResponseEntity(sagaService.filtreSaga( name, page,  size,  sortProperty,  sortDirection), HttpStatus.OK);
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     ResponseEntity <Boolean> delSaga(@PathVariable Long id ){
         return new ResponseEntity<>(sagaService.delSaga(id),HttpStatus.OK);
     }

@@ -6,21 +6,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
+
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Pret {
+public class Control {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private Date dateDebutPret;
-
-    @ManyToOne
-    private Utilisateur utilisateur;
+    @Column(unique = true)
+    private String name;
+    private Boolean state;
+    private String description;
+    private String type;
+    private String stage;
+    private String room;
 }

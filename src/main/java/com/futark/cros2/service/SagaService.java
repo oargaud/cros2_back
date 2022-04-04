@@ -31,6 +31,7 @@ public class SagaService {
     }
 
     public Page<Saga> filtreSaga(String name, Integer page, Integer size, String sortProperty,String sortDirection){
+        sortProperty = "name";
         Sort sort = Sort.by(Sort.Direction.ASC,sortProperty);
         if(sortDirection.equals("DESC")){
             sort = Sort.by(Sort.Direction.DESC,sortProperty);

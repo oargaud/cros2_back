@@ -68,10 +68,11 @@ public class BdController {
                     @RequestParam(defaultValue = "") String statut,
                     @RequestParam(defaultValue = "") String saga,
                     @RequestParam(defaultValue = "") String edition,
-                    @RequestParam(defaultValue = "") String artiste
+                    @RequestParam(defaultValue = "") String illustrateur,
+                    @RequestParam(defaultValue = "") String scenariste
             ) {
 
-        return new ResponseEntity(bdService.filtreBd( titre,  tome, statut, saga, edition,  artiste,  page,  size,  sortProperty,  sortDirection), HttpStatus.OK);
+        return new ResponseEntity(bdService.filtreBd( titre,  tome, statut, saga, edition,  illustrateur, scenariste,  page,  size,  sortProperty,  sortDirection), HttpStatus.OK);
     }
 
     @DeleteMapping("/del/{id}")

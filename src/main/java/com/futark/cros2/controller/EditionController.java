@@ -51,7 +51,7 @@ public class EditionController {
         return new ResponseEntity(editionService.filtreEdition( name, page,  size,  sortProperty,  sortDirection), HttpStatus.OK);
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     ResponseEntity <Boolean> delEdition(@PathVariable Long id ){
         return new ResponseEntity<>(editionService.delEdition(id),HttpStatus.OK);
     }

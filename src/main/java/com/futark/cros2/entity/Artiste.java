@@ -23,15 +23,20 @@ public class Artiste {
 
     private String lastname;
     private String firstname;
+    private String nickname;
 
     public void setLastname(String lastname) {
-        this.lastname = lastname.toUpperCase();
+        if(lastname!=null){
+            this.lastname = lastname.toUpperCase();
+        }
     }
 
     public void setFirstname(String firstname) {
-        String premiereLettre = firstname.toUpperCase().substring(0,1);
-        String resteDuPrenom = firstname.toLowerCase().substring(1,firstname.length());
-        this.firstname = premiereLettre + resteDuPrenom;
+        if(firstname!=null){
+            String premiereLettre = firstname.toUpperCase().substring(0,1);
+            String resteDuPrenom = firstname.toLowerCase().substring(1,firstname.length());
+            this.firstname = premiereLettre + resteDuPrenom;
+        }
     }
 
 }

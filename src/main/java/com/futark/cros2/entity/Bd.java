@@ -22,16 +22,13 @@ public class Bd {
     private String statut;
 
     @ManyToOne
-    @JoinColumn(name = "saga_id")
     private Saga saga;
 
     @ManyToOne
-    @JoinColumn(name = "edition_id")
     private Edition edition;
 
     @ManyToOne
-    @JoinColumn(name = "photo_id")
-    private Photo couv;
+    private Photo photo;
 
     @ManyToMany
     @JoinTable(
@@ -48,10 +45,8 @@ public class Bd {
     private List<Artiste> scenaristes;
 
     @ManyToOne
-    @JoinColumn(name = "lieu_id")
     private Lieu stockage;
 
     @ManyToOne
-    @JoinColumn(name = "pret_id")
     private Pret pret;
 }

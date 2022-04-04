@@ -62,9 +62,12 @@ public class UserController {
 //        return "This URL is only accessible to the user";
 //    }
 
+@PostMapping("/test")
+public void test(){
+    System.out.println("ca marche");
+}
 
-
-    @GetMapping("validate")
+    @GetMapping("/validate")
     public void validateUsertest(@RequestParam String id, @RequestParam String code){
         System.out.println("id = "+id);
         System.out.println("code = "+code);

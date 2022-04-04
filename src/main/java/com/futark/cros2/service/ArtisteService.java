@@ -18,25 +18,25 @@ public class ArtisteService {
     ArtisteRepo artisteRepo;
 
 
-    public Artiste saveArtiste(Artiste saga){
-        return artisteRepo.save(saga);
+    public Artiste saveArtiste(Artiste artiste){
+        return artisteRepo.save(artiste);
     }
 
     public Artiste getArtiste(Long id){
-        return artisteRepo.getById(id);
+        return artisteRepo.findById(id).get();
     }
 
     public List<Artiste> getArtistes(){
         return artisteRepo.findAll();
     }
 
-    public Page<Artiste> filtreArtiste(String lastname, String firstname, Integer page, Integer size, String sortProperty,String sortDirection){
+    public Page<Artiste> filtreArtiste(String lastname, String firstname, String nickname, Integer page, Integer size, String sortProperty,String sortDirection){
         Sort sort = Sort.by(Sort.Direction.ASC,sortProperty);
         if(sortDirection.equals("DESC")){
             sort = Sort.by(Sort.Direction.DESC,sortProperty);
         }
         Pageable pageable = PageRequest.of(page, size, sort);
-        return artisteRepo.filtreArtiste(lastname,firstname,pageable);
+        return artisteRepo.filtreArtiste(lastname,firstname,nickname,pageable);
     }
 
     public Boolean delArtiste(Long id){
